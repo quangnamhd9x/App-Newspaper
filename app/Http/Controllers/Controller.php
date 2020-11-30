@@ -10,4 +10,11 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    function uploadImage($obj, $request){
+        if ($request->hasFile('image')) {
+            $pathImage = $request->file('image')->store('public/images');
+            $obj->image = $pathImage;
+        }
+    }
 }

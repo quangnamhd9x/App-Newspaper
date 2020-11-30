@@ -14,4 +14,6 @@ class Newspaper extends Model
         'content',
         'image',
         ];
+
+    public $timestamps = false;
 }
