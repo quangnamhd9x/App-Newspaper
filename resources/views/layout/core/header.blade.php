@@ -378,6 +378,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="tech-contact.html">Contact Us</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.login')}}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tech-contact.html">Register</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav mr-2">
                     <li class="nav-item">

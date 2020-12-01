@@ -10,10 +10,21 @@ class Newspaper extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
-        'content',
+        'title',
+        'intro',
         'image',
+        'description',
+        'category_id',
         ];
 
     public $timestamps = false;
+
+    function getNameImage(){
+        return '/storage/images/' .ltrim($this->image, '/public/images/');
+    }
+
+    function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

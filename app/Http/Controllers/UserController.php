@@ -39,6 +39,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->username = $request->username;
         $user->password = Hash::make($request->password);
+        $user->role = 'user';
         $user->save();
         return redirect()->route('user.index');
     }

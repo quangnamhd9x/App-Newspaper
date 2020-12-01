@@ -27,6 +27,13 @@ class UserFactory extends Factory
             'name' => 'admin',
             'username' => 'admin',
             'password' => Hash::make("123"),
+            'image' => 'image',
+            'gender' => 'Nam',
+            'birthday' => '2000-06-15',
+            'email' => 'admin@gmail.com',
+            'address' => 'address',
+            'job_id' => 1,
+            'role_id' => 1,
         ];
     }
 }

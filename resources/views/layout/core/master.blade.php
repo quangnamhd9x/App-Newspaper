@@ -46,6 +46,14 @@
     <![endif]-->
 
 </head>
+    <style>
+        #fixshow {
+            white-space: nowrap;
+            width: 50px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
 <body>
 
     <div id="wrapper">
