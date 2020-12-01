@@ -49,7 +49,7 @@
     <style>
         #fixshow {
             white-space: nowrap;
-            width: 50px;
+            width: 500px;
             overflow: hidden;
             text-overflow: ellipsis;
         }

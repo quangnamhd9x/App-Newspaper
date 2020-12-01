@@ -65,8 +65,8 @@
                         </div><!-- end blog-top -->
 
                         <div class="blog-list clearfix">
-                            <hr class="invis">
                             @foreach($newspapers as $newspaper)
+                            <hr class="invis">
                             <div class="blog-box row">
                                 <div class="col-md-4">
                                     <div class="post-media">
