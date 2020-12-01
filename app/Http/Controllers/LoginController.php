@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -30,5 +32,24 @@ class LoginController extends Controller
     {
         Auth::logout();
         return redirect()->route('login');
+    }
+
+    public function register(){
+        return view('layout.admin.register');
+    }
+
+    public function postRegister(Request $request){
+        $user = new User();
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->password = Hash::make($request->password);
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->role_id = 2;
+        $user->gender = $request->gender;
+        $user->birthday = $request->birthday;
+        $this->uploadImage($user, $request);
+        $user->save();
+        return redirect()->route('admin.login');
     }
 }

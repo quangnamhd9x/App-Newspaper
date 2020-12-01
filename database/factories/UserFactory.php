@@ -32,6 +32,7 @@ class UserFactory extends Factory
             'birthday' => '2000-06-15',
             'email' => 'admin@gmail.com',
             'address' => 'address',
+            'phone' => '0966625608',
             'job_id' => 1,
             'role_id' => 1,
         ];

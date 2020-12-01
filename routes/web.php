@@ -23,6 +23,8 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('admin.login');
 Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
+Route::get('/register', [LoginController::class, 'register'])->name('admin.register');
+Route::post('/register', [LoginController::class, 'postRegister']);
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'showDashboard'])->name('admin.dashboard');
     Route::prefix('users')->group(function () {
