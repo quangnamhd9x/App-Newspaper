@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\NewspaperService;
 use App\Services\UserService;
 
 class DashboardController extends Controller
 {
-    protected $userService;
+    protected $newspaperService;
 
-    public function __construct(UserService $userService)
+    public function __construct(NewspaperService $newspaperService)
     {
-        $this->userService = $userService;
+        $this->newspaperService = $newspaperService;
     }
     public function showDashboard()
     {
-        $users = $this->userService->getAll();
-        return view('layout.admin.dashboard', compact('users'));
+        $newspapers = $this->newspaperService->getAll();
+        return view('layout.admin.dashboard', compact('newspapers'));
     }
 }

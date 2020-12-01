@@ -10,39 +10,58 @@
             <div class="card-header">
                 <i class="fas fa-table mr-1"></i>
                 DataTable Example
+                <a href="{{ route('newspaper.create') }}" class="btn btn-success">+Thêm mới</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Intro</th>
+                            <th>Options</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Intro</th>
+                            <th>Options</th>
                         </tr>
                         </tfoot>
                         <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
+                        @forelse($newspapers as $key => $newspaper)
+                            <tr>
+                                <td>{{++$key}}</td>
+                                <td><img style="width: 100px; height: 100px"
+                                         src="@if($newspaper->getNameImage() == '/storage/images/')
+                                             https://www.studynhac.vn/assets/img/default-avatar.jpg
+                                         @else
+                                         {{$newspaper->getNameImage()}}
+                                         @endif"
+                                         class="img-border-radius avatar-40 img-fluid"></td>
+                                <td>{{$newspaper->title}}</td>
+                                <td style="width: 400px; word-wrap: break-word">{{$newspaper->intro}}</td>
+                                <td>
+                                    <div>
+                                        <a data-placement="top" href="{{route('newspaper.edit', $newspaper->id)}}">
+                                            <i class="nav-icon fas fa-edit"></i>Sửa</a>
+                                        <a class="text-danger"
+                                           onclick="return confirm('Chú ý: Bạn chắc chán muốn xoá?')"
+                                           href="{{ route('newspaper.destroy', $newspaper->id) }}">
+                                            <i class="nav-icon far fa-trash-alt"></i>Xóa</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="3">Không có dữ liệu</td>
+                            </tr>
+                        @endforelse
                         </tbody>
                     </table>
                 </div>
