@@ -1,7 +1,8 @@
 @extends('layout.admin.master')
 
 @section('content')
-<form method="post" enctype="multipart/form-data">
+    <div class="container-fluid">
+    <form method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="exampleFormControlInput1">Title</label>
@@ -31,6 +32,7 @@
     </div>
     <button type="submit" class="btn btn-info">ADD</button>
 </form>
+    </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
