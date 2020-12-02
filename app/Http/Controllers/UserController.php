@@ -24,13 +24,13 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.users.list', compact('users'));
+        return view('layout.admin.user.list', compact('users'));
     }
 
     public function create()
     {
         $users = User::all();
-        return view('admin.users.add', compact( 'users'));
+        return view('layout.admin.user.add', compact( 'users'));
     }
 
     public function store(Request $request)
