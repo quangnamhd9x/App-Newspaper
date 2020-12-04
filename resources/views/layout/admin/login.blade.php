@@ -49,7 +49,7 @@
                                 </form>
                             </div>
                             <div class="card-footer text-center">
-                                <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                <div class="small"><a href="{{route('admin.register')}}">Need an account? Sign up!</a></div>
                             </div>
                         </div>
                     </div>

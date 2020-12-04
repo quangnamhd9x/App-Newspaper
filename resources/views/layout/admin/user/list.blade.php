@@ -7,7 +7,7 @@
             <div class="card-header">
                 <i class="fas fa-table mr-1"></i>
                 DataTable Example
-                <a href="{{ route('newspaper.create') }}" class="btn btn-success">+Thêm mới</a>
+                <a href="{{ route('user.create') }}" class="btn btn-success">+Thêm mới</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -16,8 +16,9 @@
                         <tr>
                             <th>#</th>
                             <th>Image</th>
-                            <th>Title</th>
-                            <th>Intro</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
                             <th>Options</th>
                         </tr>
                         </thead>
@@ -25,31 +26,33 @@
                         <tr>
                             <th>#</th>
                             <th>Image</th>
-                            <th>Title</th>
-                            <th>Intro</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
                             <th>Options</th>
                         </tr>
                         </tfoot>
                         <tbody>
-                        @forelse($newspapers as $key => $newspaper)
+                        @forelse($users as $key => $user)
                             <tr>
                                 <td>{{++$key}}</td>
                                 <td><img style="width: 100px; height: 100px"
-                                         src="@if($newspaper->getNameImage() == '/storage/images/')
+                                         src="@if($user->getNameImage() == '/storage/images/')
                                              https://www.studynhac.vn/assets/img/default-avatar.jpg
                                          @else
-                                         {{$newspaper->getNameImage()}}
+                                         {{$user->getNameImage()}}
                                          @endif"
                                          class="img-border-radius avatar-40 img-fluid"></td>
-                                <td>{{$newspaper->title}}</td>
-                                <td style="width: 400px; word-wrap: break-word">{{$newspaper->intro}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->address}}</td>
+                                <td>{{$user->phone}}</td>
                                 <td>
                                     <div>
-                                        <a data-placement="top" href="{{route('newspaper.edit', $newspaper->id)}}">
+                                        <a data-placement="top" href="{{route('user.edit', $user->id)}}">
                                             <i class="nav-icon fas fa-edit"></i>Sửa</a>
                                         <a class="text-danger"
                                            onclick="return confirm('Chú ý: Bạn chắc chán muốn xoá?')"
-                                           href="{{ route('newspaper.destroy', $newspaper->id) }}">
+                                           href="{{ route('user.destroy', $user->id) }}">
                                             <i class="nav-icon far fa-trash-alt"></i>Xóa</a>
                                     </div>
                                 </td>

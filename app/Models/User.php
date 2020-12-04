@@ -39,4 +39,8 @@ class User extends Authenticatable
     ];
 
     public $timestamps = false;
+
+    function getNameImage(){
+        return '/storage/images/' .ltrim($this->image, '/public/images/');
+    }
 }
