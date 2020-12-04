@@ -16,15 +16,24 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        $admin = [
+            'username' => $request->username,
+            'password' => $request->password,
+            'role_id' => 1,
+        ];
+
         $user = [
             'username' => $request->username,
             'password' => $request->password,
+            'role_id' => 2,
         ];
 
-        if (!Auth::attempt($user)) {
+        if (!Auth::attempt($user) && !Auth::attempt($admin)) {
             return redirect()->route('login')->with('login-error', 'Tài khoản hoặc mật khẩu không đúng!');
-        } else {
+        } else if(Auth::attempt($admin)) {
             return redirect()->route('admin.dashboard');
+        } else if (Auth::attempt($user)){
+            return redirect()->route('index');
         }
     }
 
